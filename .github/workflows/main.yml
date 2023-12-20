@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v2.4.3
+      uses: actions/checkout@v2
       with:
         ref: main
 
@@ -23,3 +23,4 @@ jobs:
     - name: Run Nikto Scan
       run: |
         ./nikto.pl -h http://www.rbxgold.com
+
