@@ -15,12 +15,8 @@ jobs:
       with:
         ref: main
 
-    - name: Set up Nikto
-      run: |
-        git clone https://github.com/sullo/nikto
-        cd nikto/program
-
     - name: Run Nikto Scan
       run: |
-        ./nikto.pl -h http://www.rbxgold.com
+        docker run sullo/nikto -h http://www.rbxgold.com
+
 
