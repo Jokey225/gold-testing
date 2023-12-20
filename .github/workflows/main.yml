@@ -1,3 +1,23 @@
-git clone https://github.com/sullo/nikto
-cd nikto/program
-./nikto.pl -h http://www.rbxgold.com
+name: Nikto Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  nikto-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up Nikto
+      run: |
+        git clone https://github.com/sullo/nikto
+        cd nikto/program
+
+    - name: Run Nikto Scan
+      run: |
+        ./nikto.pl -h http://www.rbxgold.com
